@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="right-click-container">Right Click here</div>
+    <div class="context-menu">
+        <ul>
+            <li>Share with Friends</li>
+            <li>Donate with paypal</li>
+            <li onclick="clickHandler(event)">Bookmark this page</li>
+        </ul>
+    </div>
+    <script>
+      const rightClickEl = document.querySelector(".right-click-container");
+      const contextMenuEl = document.querySelector(".context-menu");
+
+      const clickHandler = (e) => {
+        //   e.preventDefault();
+          console.log("book mark clicked");
+          e.stopPropagation();
+      }
+
+      rightClickEl.addEventListener("contextmenu", (e) => {
+        console.log("right clicked");
+        e.preventDefault();
+        console.log(contextMenuEl.style);
+        contextMenuEl.style.display = "block";
+        console.log("===============================================");
+        console.log(contextMenuEl.style.left, contextMenuEl.style.top);
+        console.log(e.clientX, e.clientY);
+        console.log("================================================");
+
+        contextMenuEl.style.left = e.clientX + 1 + "px";
+        contextMenuEl.style.top = e.clientY + 1 + "px";
+      });
+
+      document.addEventListener("click", () => {
+          contextMenuEl.style.display = "none";
+          console.log("document clicked");
+      })
+    </script>
+  </body>
+</html>

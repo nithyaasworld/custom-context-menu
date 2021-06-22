@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.right-click-container{
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.context-menu {
+    display: none;
+    left:0;
+    top: 0;
+    position: absolute;
+    z-index: 2;
+    background-color: white;
+}
+.context-menu ul{
+    list-style-type: none;
+    border: 1px solid;
+    border-radius: 3px;
+}
+ul li{
+    border-bottom: 1px solid;
+    padding: 1em;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+ul li:hover{
+    background-color: antiquewhite;
+}
